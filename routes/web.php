@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::group(['prefix' => '/', 'as' => 'admin.'], function (){
+Route::get('/login',[AuthController::class,'loginpage']);
+Route::post('/login',[AuthController::class,'login'])->name('login');
+Route::group(['prefix' => '/', 'as' => 'admin.','middleware' => 'auth'], function (){
 
     //Dashboard Route
     Route::get('home', [HomeController::class, 'index'])->name('dashboard');
