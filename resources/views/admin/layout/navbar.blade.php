@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="royalHospitalsNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active-page" href="index.html">
+                <a class="nav-link active-page" href="{{ route('admin.dashboard') }}">
                     <i class="icon-devices_other nav-icon"></i>
                     Dashboard
                 </a>
@@ -18,35 +18,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="doctoRs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="icon-users nav-icon"></i>
-                    Doctors
+                    Patients
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="doctoRs">
                     <li>
-                        <a class="dropdown-item" href="hospital-doctors-list.html">Doctors List</a>
+                        <a class="dropdown-item" href="{{ route('admin.patient.index') }}">Patients</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="hospital-locations.html">Hospital Locations</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="hospital-reviews.html">Hospital Reviews</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="blog.html">News and Events</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="hospital-trainings.html">Staff Trainings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="hospital-doctors.html">Doctors</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="hospital-patients.html">Patients</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="hospital-add-doctor.html">Add Doctor</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="hospital-add-patient.html">Add Patient</a>
+                        <a class="dropdown-item" href="{{ route('admin.patient.create') }}">Add Patient</a>
                     </li>
                 </ul>
             </li>
