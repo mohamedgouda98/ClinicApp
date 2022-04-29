@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//login
 Route::get('/login',[AuthController::class,'loginpage']);
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], function (){
@@ -33,4 +35,12 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], fu
        Route::put('/update/{patient}', [PatientController::class, 'update'])->name('update');
        Route::delete('/delete', [PatientController::class, 'destroy'])->name('destroy');
     });
+
+
+Route::group(['prefix' => '/', 'as' => 'admin.','middleware' => 'auth'], function (){
+
+    //Dashboard Route
+    Route::get('home', [HomeController::class, 'index'])->name('dashboard');
+    //logout 
+    Route::post('/logout',[AuthController::class,'login'])->name('logout');
 });

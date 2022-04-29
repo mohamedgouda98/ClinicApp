@@ -14,8 +14,7 @@ class AuthRepository implements AuthInterface{
     }
     public function login($request){
         $credentials = $request->only(['email', 'password']);
-
-        if (Auth::attempt($credentials)) {
+        if (  Auth::attempt($credentials)) {
             Alert::success('success','Welcome Back'. Auth::user()->name);
             return redirect(route('admin.dashboard'));
         }
