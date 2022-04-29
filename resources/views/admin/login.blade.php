@@ -9,7 +9,7 @@
 	<!-- Meta -->
 	<meta name="description" content="Responsive Bootstrap4 Dashboard Template">
 	<meta name="author" content="ParkerThemes">
-	<link rel="shortcut icon" href="img/fav.png" />
+	<link rel="shortcut icon" href="{{ asset('assetsAdmin/img/fav.png')}} "/>
 
 	<!-- Title -->
 	<title>Clinic App - Login</title>

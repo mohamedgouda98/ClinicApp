@@ -68,7 +68,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-                            <span class="user-name">Nélson Romyo</span>
+                            <span class="user-name">{{Auth::user()->name}}</</span>
                             <span class="avatar">NR<span class="status busy"></span></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
@@ -77,13 +77,13 @@
                                     <div class="header-user">
                                         <img src="{{ asset('assetsAdmin/img/user11.png') }}" alt="Royal Hospitals Admin Template" />
                                     </div>
-                                    <h5>Nélson Romyo</h5>
-                                    <p>Admin</p>
+                                    <h5>{{Auth::user()->name}}</h5>
+                                    <p>{{Auth::user()->role}}</</p>
                                 </div>
                                 <a href="hospital-add-doctor.html"><i class="icon-user1"></i> My Profile</a>
                                 <a href="account-settings.html"><i class="icon-settings1"></i> Account Settings</a>
                                 <a href="hospital-reviews.html"><i class="icon-activity"></i> Activity Logs</a>
-                                <a href="login.html"><i class="icon-log-out1"></i> Sign Out</a>
+                                <a href="{{route('admin.logout')}}"><i class="icon-log-out1"></i> Sign Out</a>
                             </div>
                         </div>
                     </li>
