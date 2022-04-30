@@ -159,7 +159,7 @@
                         </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
-                                <label for="biO"> diagnosis Img</label>
+                                <label for="biO">  Image </label>
                                 <input type="file" class="form-control" id="diagnosis_img" name="diagnosis_img"  >
                                 @error('diagnosis_img')
                                             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
