@@ -33,20 +33,20 @@ class DiagnosisRepository implements  DiagnosisInterface {
 
     public function update($request, $diagnosis){
         $diagnosis->update([
-            'complaint'   =>$request->complaint,
-            'diagnosis'   =>$request->diagnosis,
-            'investigation'=>$request->investigation,
-            'treamtent'    =>$request->treamtent,
-            'reseen'       =>$request->reseen,
-            'hn'           =>$request->hn,
-            'phnx'         =>$request->phnx,
-            'wt'           =>$request->wt,
-            'tep'          =>$request->tep,
-            'hc'           =>$request->hc,
-            'chest'        =>$request->chest,
-            'abd'          =>$request->abd,
-            'gentalia'     =>$request->gentalia,
-            'other'        =>$request->other
+            'complaint'   =>$request->complaint ?? null,
+            'diagnosis'   =>$request->diagnosis ?? null,
+            'investigation'=>$request->investigation ?? null,
+            'treamtent'    =>$request->treamtent ?? null,
+            'reseen'       =>$request->reseen ?? null,
+            'hn'           =>$request->hn ?? null,
+            'phnx'         =>$request->phnx ?? null, 
+            'wt'           =>$request->wt ?? null,
+            'tep'          =>$request->tep ?? null,
+            'hc'           =>$request->hc ?? null,
+            'chest'        =>$request->chest ?? null,
+            'abd'          =>$request->abd ?? null,
+            'gentalia'     =>$request->gentalia ?? null,
+            'other'        =>$request->other ?? null
         ]);
                     
 

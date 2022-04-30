@@ -33,7 +33,15 @@
                             <div class="card-title">Patient Details</div>
                         </div>
                         <form action="{{ route('admin.patient.update',$patient) }}" method="post">
-                          @iclude('admin.patient.form')
+                            @method ('PUT')
+                          @include('admin.patient.form')
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="text-right">
+                                            <button class="btn btn-primary">Update Booking</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

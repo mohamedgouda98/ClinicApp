@@ -41,14 +41,14 @@
                     <div class="row gutters">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
-                            <label for="biO"> complaint</label>
+                            <label for="biO"> Complaint</label>
                                 <input type="text" class="form-control" id="complaint" name="complaint" placeholder="complaint" value="{{$diagnosis->complaint}}">
                                 
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
-                            <label for="biO"> diagnosis</label>
+                            <label for="biO"> Diagnosis</label>
                                 <input type="text" class="form-control" id="diagnosis" name="diagnosis" placeholder="diagnosis" value="{{$diagnosis->diagnosis}}">
                                
                             </div>
@@ -57,7 +57,7 @@
                     <div class="row gutters">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
-                            <label for="biO">investigation</label>
+                            <label for="biO">Investigation</label>
                                 <input type="text" class="form-control" id="investigation" name="investigation" placeholder="investigation" value="{{$diagnosis->investigation}}">
                               
                             </div>
@@ -130,7 +130,7 @@
                         
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
-                            <label for="biO"> chest</label>
+                            <label for="biO"> Chest</label>
                                 <input type="text" class="form-control" id="chest" name="chest" placeholder="chest" value="{{$diagnosis->chest}}">
                                
                             </div>
