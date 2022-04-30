@@ -20,6 +20,9 @@ class PatientController extends Controller
     {
         return $this->patientInterface->index();
     }
+    public function search(){
+        return $this->patientInterface->search();
+    }
 
     public function create()
     {

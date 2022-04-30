@@ -23,6 +23,6 @@ class AuthRepository implements AuthInterface{
     public function logout(){
         Session::flush();
         Auth::logout();
-        return redirect(route('admin.auth'));
+        return redirect(route('loginpage'));
     }
 }

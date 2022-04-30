@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     use HasFactory;
+    protected $table="patients";
 
     protected $fillable = [
         'name',
@@ -30,4 +31,8 @@ class Patient extends Model
     {
         return $this->hasMany(Booking::class, 'patient_id', 'id');
     }
+    public function diagnosis(){
+        return $this->hasMany(diagnosis::class,'patient_id','id');
+    }
+
 }
