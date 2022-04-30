@@ -34,7 +34,7 @@
                         </div>
                         <form action="{{ route('admin.patient.store') }}" method="post">
                             @csrf
-                          @include('admin.patient.form')
+                            @include('admin.patient.form')
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">
                                             <button class="btn btn-primary">Create Booking</button>

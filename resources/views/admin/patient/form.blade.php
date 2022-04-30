@@ -26,7 +26,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="agE">Age</label>
-                                            <input type="text" class="form-control @error('age') is-invalid fparsley-error parsley-error @enderror" value="{{old('age',$patient->age ?? '')}}" id="agE" placeholder="Age" name="age" required>
+                                            <input type="number" class="form-control @error('age') is-invalid fparsley-error parsley-error @enderror" value="{{old('age',$patient->age ?? '')}}" id="agE" placeholder="Age" name="age" required>
                                             @error('age')
                                             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                                                 <p>{{ $message }}</p>
@@ -59,7 +59,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="inputEmail">Father Age</label>
-                                            <input type="number" class="form-control @error('father_age') is-invalid fparsley-error parsley-error @enderror" value="{{old('father_age',$patient->father_age ?? '')}}"  id="father_age" placeholder="mohamed" name="father_age" required>
+                                            <input type="number" class="form-control @error('father_age') is-invalid fparsley-error parsley-error @enderror" value="{{old('father_age',$patient->father_age ?? '')}}"  id="father_age" placeholder="33" name="father_age" required>
                                             @error('father_age')
                                             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                                                 <p>{{ $message }}</p>
@@ -103,7 +103,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="inputEmail">Mother Age</label>
-                                            <input type="text" class="form-control @error('mother_age') is-invalid fparsley-error parsley-error @enderror" value="{{old('mother_age',$patient->mather_age ?? '')}}" id="mother_age" placeholder="33" name="mother_age">
+                                            <input type="number" class="form-control @error('mother_age') is-invalid fparsley-error parsley-error @enderror" value="{{old('mother_age',$patient->mather_age ?? '')}}" id="mother_age" placeholder="33" name="mother_age">
                                             @error('mother_age')
                                             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                                                 <p>{{ $message }}</p>
