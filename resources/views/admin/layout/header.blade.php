@@ -83,7 +83,15 @@
                                 <a href="hospital-add-doctor.html"><i class="icon-user1"></i> My Profile</a>
                                 <a href="account-settings.html"><i class="icon-settings1"></i> Account Settings</a>
                                 <a href="hospital-reviews.html"><i class="icon-activity"></i> Activity Logs</a>
-                                <a href="{{route('admin.logout')}}"><i class="icon-log-out1"></i> Sign Out</a>
+                                 <form method="post" action="{{route('admin.logout')}}">
+                                     @csrf
+                                     
+                                 <button class="btn btn-m" tybe= submit>
+                                       <i class="icon-log-out1 mr-3 ml-1"></i>
+                                 Sign Out  
+                                  </button>
+                                 </form>
+                               
                             </div>
                         </div>
                     </li>

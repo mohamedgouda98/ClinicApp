@@ -1,44 +1,64 @@
 @extends('admin.layout.master')
 
 @section('title')
-    Patient
+Patient
 @endsection
 
 @section('content')
-    <div class="main-container">
+<div class="main-container">
 
 
-        <!-- Page header start -->
-        <div class="page-header">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item active">Patients</li>
-            </ol>
-            <div class="site-award">
-                <img src="{{ asset('assetsAdmin/img/award.svg') }}" alt="Award"> Best Hospital
+    <!-- Page header start -->
+    <div class="page-header">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active">Patients</li>
+        </ol>
+        <div class="site-award">
+            <img src="{{ asset('assetsAdmin/img/award.svg') }}" alt="Award"> Best Hospital
+        </div>
+    </div>
+    <!-- Page header end -->
+
+
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div id="basicExample_filter" class="dataTables_filter">
+                    <label>
+                        <form method="get" action="{{route('admin.patient.search')}}">
+                            @csrf
+                            <div class="input-group">
+                                <div class="form-outline">
+                                    <input id="search-input" type="search"  class="form-control" placeholder="Search" />
+                                </div>
+                                <button  type="submit" class="btn btn-sm btn-primary">
+                                    <span class="icon-magnifying-glass "></span>
+                                </button>
+                            </div> 
+                        </form>
+                </div>
+                </label>
             </div>
         </div>
-        <!-- Page header end -->
 
+        <!-- Row start -->
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="table-container">
 
-        <!-- Content wrapper start -->
-        <div class="content-wrapper">
-
-            <!-- Row start -->
-            <div class="row gutters">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="table-container">
-
-                        <!--*************************
+                    <!--*************************
                             *************************
                             *************************
                             Basic table start
                         *************************
                         *************************
                         *************************-->
-                        <div class="table-responsive">
-                            <table id="basicExample" class="table">
-                                <thead>
+                    <div class="table-responsive">
+
+                        <table id="basicExample" class="table">
+                            <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Booking ID</th>
@@ -47,41 +67,42 @@
                                     <th>Phone</th>
                                     <th>Actions</th>
                                 </tr>
-                                </thead>
-                                <tbody>
+                            </thead>
+                            <tbody>
                                 @foreach($patients as $patient)
-                                    <tr>
-                                        <td>{{ $patient->name }}</td>
-                                        <td>@foreach($patient->book as $book)
-                                            {{$book->id}}
-                                            @endforeach</td>
-                                        <td>{{ $patient->age }}</td>
-                                        <td>{{ $patient->address }}</td>
-                                        <td>{{ $patient->phone }}</td>
-                                        <td>
-                                            <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.patient.edit', $patient) }}"><button type="button" class="btn btn-info">
+                                <tr>
+                                    <td>{{ $patient->name }}</td>
+                                    <td>@foreach($patient->book as $book)
+                                        {{$book->id}}
+                                        @endforeach
+                                    </td>
+                                    <td>{{ $patient->age }}</td>
+                                    <td>{{ $patient->address }}</td>
+                                    <td>{{ $patient->phone }}</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <a href="{{ route('admin.patient.edit', $patient) }}"><button type="button" class="btn btn-info">
                                                     <i class="icon-edit1"></i>
                                                 </button>
-                                                </a>
-                                                <a href="{{ route('admin.patient.show', $patient) }}"><button type="button" class="btn btn-success">
-                                                        <i class="icon-user-check"></i>
-                                                    </button>
-                                                </a>
-                                                <meta name="csrf-token" content="{{csrf_token()}}">
-                                                <button data-id="{{$patient->id}}" data-name="patient" type="submit"  class="btn btn-danger show_confirm_two">
-                                                    <i class="icon-cancel"></i>
+                                            </a>
+                                            <a href="{{ route('admin.patient.show', $patient) }}"><button type="button" class="btn btn-success">
+                                                    <i class="icon-user-check"></i>
                                                 </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </a>
+                                            <meta name="csrf-token" content="{{csrf_token()}}">
+                                            <button data-id="{{$patient->id}}" data-name="patient" type="submit" class="btn btn-danger show_confirm_two">
+                                                <i class="icon-cancel"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
                                 @endforeach
 
-                                </tbody>
-                            </table>
-                            {{ $patients->links() }}
-                        </div>
-                        <!--*************************
+                            </tbody>
+                        </table>
+                        {{ $patients->links() }}
+                    </div>
+                    <!--*************************
                             *************************
                             *************************
                             Basic table end
@@ -89,17 +110,17 @@
                         *************************
                         *************************-->
 
-                    </div>
                 </div>
             </div>
-            <!-- Row end -->
-
         </div>
-        <!-- Content wrapper end -->
+        <!-- Row end -->
 
     </div>
+    <!-- Content wrapper end -->
+
+</div>
 @endsection
 
 @push('custom-scripts')
-    <script src="{{ asset('assetsAdmin/js/custom.js') }}"></script>
+<script src="{{ asset('assetsAdmin/js/custom.js') }}"></script>
 @endpush

@@ -25,6 +25,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Interfaces\PatientInterface',
             'App\Http\Repositories\PatientRepository'
         );
+        $this->app->bind(
+            'App\Http\Interfaces\DiagnosisInterface',
+            'App\Http\Repositories\DiagnosisRepository'
+        );
     }
 
     /**

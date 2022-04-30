@@ -4,6 +4,7 @@ namespace App\Http\Repositories;
 
 use App\Http\Interfaces\PatientInterface;
 use App\Models\Booking;
+use App\Models\Diagnosis;
 use App\Models\Patient;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -12,17 +13,22 @@ class PatientRepository implements PatientInterface
 {
     private $patientModel;
     private $bookingModel;
+    private $diagnosisModel;
 
-    public function __construct(Patient  $patient, Booking $booking)
+    public function __construct(Patient  $patient, Booking $booking ,Diagnosis $diagnosis)
     {
-        $this->patientModel = $patient;
-        $this->bookingModel = $booking;
+        $this->patientModel   = $patient;
+        $this->bookingModel   = $booking;
+        $this->diagnosisModel = $diagnosis;
     }
 
     public function index()
     {
         $patients = $this->patientModel::with('book')->orderBy('id', 'desc')->paginate(10);
         return view('admin.patient.index', compact('patients'));
+    }
+    public function search(){
+      
     }
 
     public function create()
@@ -61,8 +67,11 @@ class PatientRepository implements PatientInterface
     }
 
     public function show($patient)
+
     {
-        // TODO: Implement show() method.
+         $id=$patient->id;
+         $diagnosis= $this->diagnosisModel::where('patient_id',$id)->with('diagnosisImg')->get();
+        return view('admin.patient.show', compact('patient','diagnosis'));
     }
 
     public function edit($patient)
