@@ -28,7 +28,7 @@ class DiagnosisController extends Controller
         return $this->DiagnosisInterface->edit($diagnosis);
     }
 
-    public function update(DiagnosisRequest $request,  Diagnosis $diagnosis){
+    public function update(Request $request,  Diagnosis $diagnosis){
         return $this->DiagnosisInterface->update($request,$diagnosis);
     }
 

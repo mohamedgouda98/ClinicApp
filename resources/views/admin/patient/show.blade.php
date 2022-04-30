@@ -104,7 +104,6 @@ Patient Details
 									<th>Father Name</th>
 									<th>Father age</th>
 									<th>Father Job </th>
-
 									<th>Mother Name</th>
 									<th>Mother age</th>
 									<th>Mother Job </th>
@@ -187,7 +186,7 @@ Patient Details
 
 		</div>
 		<div class="text-center">
-						<a href="{{route('admin.diagnosis.edit',$diagnoses->id)}}" class="btn  btn-primary text-center">Re-Order</a>
+						<a href="#" class="btn  btn-primary text-center">Re-Order</a>
 						</div>
 
 
