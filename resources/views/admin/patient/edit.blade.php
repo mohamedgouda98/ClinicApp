@@ -32,12 +32,12 @@
                         <div class="card-header">
                             <div class="card-title">Patient Details</div>
                         </div>
-                        <form action="{{ route('admin.patient.store') }}" method="post">
-                            @csrf
-                            @include('admin.patient.form')
+                        <form action="{{ route('admin.patient.update',$patient) }}" method="post">
+                            @method ('PUT')
+                          @include('admin.patient.form')
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">
-                                            <button class="btn btn-primary">Create Booking</button>
+                                            <button class="btn btn-primary">Update Booking</button>
                                         </div>
                                     </div>
                                 </div>

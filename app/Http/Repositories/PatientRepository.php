@@ -76,12 +76,30 @@ class PatientRepository implements PatientInterface
 
     public function edit($patient)
     {
-        // TODO: Implement edit() method.
+        return view('admin.patient.edit',compact('patient'));
     }
 
     public function update($request, $patient)
     {
-        // TODO: Implement update() method.
+        $patient =  $patient->update([
+            'name' => $request->name,
+            'age' => $request->age,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'father_name' => $request->father_name,
+            'father_age' => $request->father_age,
+            'father_job' => $request->father_job,
+            'mather_name' => $request->mother_name,
+            'mather_age' => $request->mother_age,
+            'mather_job' => $request->mother_job,
+            'relation_type' => $request->relation_type,
+            'number_of_births' => $request->number_of_births,
+            'date' => $request->date ?? null,
+            'note' => $request->note ?? null
+        ]);
+
+        Alert::success('success', 'Patient updated Successfully' );
+        return redirect(route('admin.patient.index'));
     }
 
     public function destroy($request)
