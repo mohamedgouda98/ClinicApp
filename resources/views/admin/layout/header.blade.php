@@ -85,13 +85,11 @@
                                 <a href="hospital-reviews.html"><i class="icon-activity"></i> Activity Logs</a>
                                  <form method="post" action="{{route('admin.logout')}}">
                                      @csrf
-                                     
                                  <button class="btn btn-m" tybe= submit>
                                        <i class="icon-log-out1 mr-3 ml-1"></i>
-                                 Sign Out  
+                                 Sign Out
                                   </button>
                                  </form>
-                               
                             </div>
                         </div>
                     </li>

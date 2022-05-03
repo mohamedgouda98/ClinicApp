@@ -28,7 +28,7 @@ class PatientRepository implements PatientInterface
         return view('admin.patient.index', compact('patients'));
     }
     public function search(){
-      
+
     }
 
     public function create()
@@ -81,7 +81,7 @@ class PatientRepository implements PatientInterface
 
     public function update($request, $patient)
     {
-        $patient =  $patient->update([
+          $patient->update([
             'name' => $request->name,
             'age' => $request->age,
             'address' => $request->address,
@@ -110,5 +110,10 @@ class PatientRepository implements PatientInterface
             return 1;
         }
         return 0;
+    }
+
+    public function createDiagnose($patient)
+    {
+        return view('admin.diagnoses.create', compact('patient'));
     }
 }
