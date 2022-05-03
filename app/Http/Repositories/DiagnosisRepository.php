@@ -82,24 +82,38 @@ class DiagnosisRepository implements  DiagnosisInterface
 
     public function update($request, $diagnosis)
     {
-            $diagnosis->update([
-                'complaint'    => $request->complaint ?? null,
-                'diagnosis'    => $request->diagnosis ?? null,
-                'investigation'=> $request->investigation ?? null,
-                'treamtent'    => $request->treamtent ?? null,
-                'reseen'       => $request->reseen ?? null,
-                'hn'           => $request->hn ?? null,
-                'phnx'         => $request->phnx ?? null,
-                'wt'           => $request->wt ?? null,
-                'tep'          => $request->tep ?? null,
-                'hc'           => $request->hc ?? null,
-                'chest'        => $request->chest ?? null,
-                'abd'          => $request->abd ?? null,
-                'gentalia'     => $request->gentalia ?? null,
-                'other'        => $request->other ?? null,
-                'patient_id'   => $request->patient_id
-            ]);
+            DB::transaction(function () use ($request, $diagnosis){
+                $diagnosis->update([
+                    'complaint'    => $request->complaint ?? null,
+                    'diagnosis'    => $request->diagnosis ?? null,
+                    'investigation'=> $request->investigation ?? null,
+                    'treamtent'    => $request->treamtent ?? null,
+                    'reseen'       => $request->reseen ?? null,
+                    'hn'           => $request->hn ?? null,
+                    'phnx'         => $request->phnx ?? null,
+                    'wt'           => $request->wt ?? null,
+                    'tep'          => $request->tep ?? null,
+                    'hc'           => $request->hc ?? null,
+                    'chest'        => $request->chest ?? null,
+                    'abd'          => $request->abd ?? null,
+                    'gentalia'     => $request->gentalia ?? null,
+                    'other'        => $request->other ?? null,
+                    'patient_id'   => $request->patient_id
+                ]);
 
+                $files = $request->file('diagnosis_img');
+                if ($request->hasFile('diagnosis_img')) {
+
+                    foreach($files as $file){
+                        $fileName = time(). '.' .$file->extension();
+                        $file = $this->uploadImage($file, $fileName, 'diagnose_files', null);
+                        $this->diagnoseImgModel::create([
+                            'diagnose_id' => $diagnosis->id,
+                            'img'         => $fileName
+                        ]);
+                    }
+                }
+            });
             Alert::success('success', 'Diagnosis Updated Successfully');
             return redirect()->back();
 
