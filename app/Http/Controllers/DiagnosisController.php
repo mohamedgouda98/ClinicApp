@@ -14,26 +14,30 @@ class DiagnosisController extends Controller
     {
         $this->DiagnosisInterface=$diagnosisInterface;
     }
-    
 
-    public function create(){
-        return $this->DiagnosisInterface->create();
+    public function index()
+    {
+        return $this->DiagnosisInterface->index();
     }
 
-    public function store(DiagnosisRequest $request){
+    public function store(DiagnosisRequest $request)
+    {
         return $this->DiagnosisInterface->store($request);
     }
 
-    public function edit( Diagnosis $diagnosis){
+    public function edit( Diagnosis $diagnosis)
+    {
         return $this->DiagnosisInterface->edit($diagnosis);
     }
 
-    public function update(Request $request,  Diagnosis $diagnosis){
+    public function update(DiagnosisRequest $request, Diagnosis $diagnosis)
+    {
         return $this->DiagnosisInterface->update($request,$diagnosis);
     }
 
-    public function destroy( Request $request){
+    public function destroy(Request $request)
+    {
         return $this->DiagnosisInterface->destroy($request);
-        
+
     }
 }

@@ -32,35 +32,11 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="icon-book-open nav-icon"></i>
-                    Pages
+                    Diagnoses
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
                     <li>
-                        <a class="dropdown-item" href="calendar.html">Calendar</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="invoice.html">Invoice</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="cards.html">Cards</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="search-results.html">Search Results</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="gallery.html">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="icons.html">Icons</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="typography.html">Typography</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="account-settings.html">Account Settings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="default-layout.html">Default Layout</a>
+                        <a class="dropdown-item" href="{{ route('admin.diagnose.index') }}">Diagnoses</a>
                     </li>
                 </ul>
             </li>

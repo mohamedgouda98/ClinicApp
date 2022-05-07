@@ -11,7 +11,7 @@ class DiagnosisRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +21,11 @@ class DiagnosisRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-           
+           'patient_id'      => 'required|exists:patients,id',
+           'diagnosis_img[]' => 'sometimes|file|mimes:png,jpg,gif,webp,jpeg,zip,rar,pdf,docx,xlsx'
         ];
     }
 }

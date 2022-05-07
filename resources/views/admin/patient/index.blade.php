@@ -36,7 +36,7 @@ Patient
                                 <button  type="submit" class="btn btn-sm btn-primary">
                                     <span class="icon-magnifying-glass "></span>
                                 </button>
-                            </div> 
+                            </div>
                         </form>
                 </div>
                 </label>
@@ -71,7 +71,7 @@ Patient
                             <tbody>
                                 @foreach($patients as $patient)
                                 <tr>
-                                    <td>{{ $patient->name }}</td>
+                                    <td><a href="{{ route('admin.patient.create-diagnose', $patient) }}">{{ $patient->name }}</a> </td>
                                     <td>@foreach($patient->book as $book)
                                         {{$book->id}}
                                         @endforeach
@@ -81,7 +81,7 @@ Patient
                                     <td>{{ $patient->phone }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="{{ route('admin.patient.edit', $patient) }}"><button type="button" class="btn btn-info">
+                                            <a href="{{ route('admin.patient.edit', [$patient, '$patient' => \Illuminate\Support\Str::slug($patient->name)]) }}"><button type="button" class="btn btn-info">
                                                     <i class="icon-edit1"></i>
                                                 </button>
                                             </a>

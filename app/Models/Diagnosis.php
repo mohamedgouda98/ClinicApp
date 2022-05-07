@@ -10,7 +10,7 @@ class Diagnosis extends Model
 {
     use HasFactory;
     protected $table = "diagnoses";
-    protected $fillable= 
+    protected $fillable=
     [
         'complaint',
         'diagnosis',
@@ -26,15 +26,16 @@ class Diagnosis extends Model
         'hrt',
         'chest',
         'abd',
-        'gentalia'
-        ,'other'
-        ,'created_at'
+        'gentalia',
+        'other',
+        'patient_id',
+        'created_at'
     ];
 
     public function patients(){
         return $this->belongsTo(Patient::class,'patient_id','id');
     }
     public function diagnosisImg(){
-        return $this->hasMany(Diagnose_img::class,'diagnose_id','id');
+        return $this->hasMany(DiagnoseImg::class,'diagnose_id','id');
     }
 }

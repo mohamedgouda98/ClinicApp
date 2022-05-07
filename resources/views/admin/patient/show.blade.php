@@ -33,7 +33,7 @@ Patient Details
 					<!--*************************
 									*************************
 									*************************
-									 patient details table 
+									 patient details table
                                 *************************
 								*************************
 								*************************-->
@@ -92,7 +92,7 @@ Patient Details
 					<!--*************************
 									*************************
 									*************************
-									 patient details table 
+									 patient details table
                                 *************************
 								*************************
 								*************************-->
@@ -176,7 +176,7 @@ Patient Details
 
 						</div>
 						<div class="text-center">
-						<a href="{{route('admin.diagnosis.edit',$diagnoses->id)}}" class="btn  btn-primary text-center">Edit</a>
+						<a href="{{route('admin.diagnose.edit',$diagnoses->id)}}" class="btn  btn-primary text-center">Edit</a>
 						</div>
 					</div>
 
@@ -193,7 +193,7 @@ Patient Details
 
 	</div>
 	<!-- Content wrapper end -->
-       
+
 
 
 </div>

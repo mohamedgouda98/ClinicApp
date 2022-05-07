@@ -53,4 +53,9 @@ class PatientController extends Controller
     {
         return $this->patientInterface->destroy($request);
     }
+
+    public function createDiagnose(Patient $patient)
+    {
+        return $this->patientInterface->createDiagnose($patient);
+    }
 }

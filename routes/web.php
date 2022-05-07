@@ -25,7 +25,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], fu
 
     //Dashboard Route
     Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
-    //logout 
+    //logout
     Route::post('/logout',[AuthController::class,'logout'])->name('logout');
     //Patient Route
     Route::group(['prefix' => 'patients', 'as' => 'patient.'], function (){
@@ -36,11 +36,12 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], fu
        Route::get('/show/{patient}', [PatientController::class, 'show'])->name('show');
        Route::get('/edit/{patient}', [PatientController::class, 'edit'])->name('edit');
        Route::put('/update/{patient}', [PatientController::class, 'update'])->name('update');
+       Route::get('/create-diagnose/{patient}', [PatientController::class, 'createDiagnose'])->name('create-diagnose');
        Route::delete('/delete', [PatientController::class, 'destroy'])->name('destroy');
     });
     //Diagnosis Route
-    Route::group(['prefix' => 'diagnosis', 'as' => 'diagnosis.'], function (){
-        Route::get('/create', [DiagnosisController::class, 'create'])->name('create');
+    Route::group(['prefix' => 'diagnoseis', 'as' => 'diagnose.'], function (){
+        Route::get('/index', [DiagnosisController::class, 'index'])->name('index');
         Route::post('/store', [DiagnosisController::class, 'store'])->name('store');
         Route::get('/edit/{diagnosis}', [DiagnosisController::class, 'edit'])->name('edit');
         Route::put('/update/{diagnosis}', [DiagnosisController::class, 'update'])->name('update');

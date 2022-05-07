@@ -3,8 +3,7 @@ namespace App\Http\Interfaces;
 
 interface DiagnosisInterface{
 
-
-    public function create();
+    public function index();
 
     public function store($request);
 
