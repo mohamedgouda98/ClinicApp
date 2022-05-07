@@ -28,7 +28,8 @@ class Diagnosis extends Model
         'abd',
         'gentalia'
         ,'other'
-        ,'created_at'
+        ,'created_at',
+        'patient_id'
     ];
 
     public function patients(){

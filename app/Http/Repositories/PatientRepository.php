@@ -99,7 +99,7 @@ class PatientRepository implements PatientInterface
         ]);
 
         Alert::success('success', 'Patient updated Successfully' );
-        return redirect(route('admin.patient.index'));
+        return  redirect(route('admin.patient.index'));
     }
 
     public function destroy($request)
