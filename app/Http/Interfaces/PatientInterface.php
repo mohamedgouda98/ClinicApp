@@ -21,4 +21,6 @@ interface PatientInterface
     public function destroy($request);
 
     public function createDiagnose($patient);
+
+    public function reOrder($patient);
 }

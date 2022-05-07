@@ -143,14 +143,14 @@ Patient Details
 
 		<!-- Row start -->
 		<div class="row gutters">
-			@foreach($diagnosis as $diagnoses)
+			@foreach($diagnosis as $key=> $diagnoses)
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="card">
 				@foreach( $diagnoses->diagnosisImg as $diagnosesImg)
 					<img class="card-img-top" src="{{$diagnosesImg->img}}" alt="Card image cap">
 					@endforeach
 					<div class="card-header">
-						<div class="card-title text-center"> Diagnosis: {{$diagnoses->diagnosis}}</div>
+						<div class="card-title text-center"> Diagnosis {{ ++$key}}</div>
 
 					</div>
 
@@ -159,6 +159,7 @@ Patient Details
 
 							<ul class="list-group">
 								<li class="list-group-item "> <strong>Complaint :</strong> {{$diagnoses->complaint}} </li>
+								<li class="list-group-item "> <strong>Diagnosis:</strong>{{$diagnoses->diagnosis}} </li>
 								<li class="list-group-item"><strong>investigation :</strong> {{$diagnoses->investigation}}</li>
 								<li class="list-group-item"><strong>Treamtent :</strong> {{$diagnoses->treamtent}}</li>
 								<li class="list-group-item"><strong>Reseen : </strong>{{$diagnoses->reseen}}</li>
@@ -186,8 +187,12 @@ Patient Details
 
 		</div>
 		<div class="text-center">
-						<a href="#" class="btn  btn-primary text-center">Re-Order</a>
-						</div>
+			<form action="{{route('admin.patient.reorder',$patient->id)}}" method="post">
+				@csrf
+				<button type="submit" class="btn  btn-primary text-center">Re-Order</a>
+					
+			</form>
+					</div>		
 
 
 
