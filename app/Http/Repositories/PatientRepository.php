@@ -123,7 +123,7 @@ class PatientRepository implements PatientInterface
             'patient_id' => $patient->id
         ]);
           Alert::success('success', 'New Booking Created Successfully, Book Id Number ' . $book->id);
-          
+          return redirect(route('admin.patient.index'));
 
     }
 }

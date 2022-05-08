@@ -147,7 +147,7 @@ Patient Details
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="card">
 				@foreach( $diagnoses->diagnosisImg as $diagnosesImg)
-					<img class="card-img-top" src="{{$diagnosesImg->img}}" alt="Card image cap">
+					<img class="img-thumbnail " src="{{asset('images/diagnose_files/'.$diagnosesImg->img)}}" alt="Card image cap">
 					@endforeach
 					<div class="card-header">
 						<div class="card-title text-center"> Diagnosis {{ ++$key}}</div>

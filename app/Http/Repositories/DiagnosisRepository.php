@@ -54,8 +54,8 @@ class DiagnosisRepository implements  DiagnosisInterface
             $files = $request->file('diagnosis_img');
             if ($request->hasFile('diagnosis_img')) {
 
-                foreach($files as $file){
-                    $fileName = time(). '.' .$file->extension();
+                foreach($files as  $key=> $file){
+                    $fileName = time(). $key.'.' .$file->extension();
                     $file = $this->uploadImage($file, $fileName, 'diagnose_files', null);
                     $this->diagnoseImgModel::create([
                         'diagnose_id' => $diagnose->id,
@@ -102,16 +102,26 @@ class DiagnosisRepository implements  DiagnosisInterface
                 ]);
 
                 $files = $request->file('diagnosis_img');
+                $images= $diagnosis->diagnosisImg;
+
                 if ($request->hasFile('diagnosis_img')) {
 
-                    foreach($files as $file){
-                        $fileName = time(). '.' .$file->extension();
-                        $file = $this->uploadImage($file, $fileName, 'diagnose_files', null);
+                    
+                    foreach($images as $image){
+
+                        $this->diagnoseImgModel->destroy($image->id);
+                          unlink(public_path('images/diagnose_files/'.$image->img));
+                   
+                     }  
+                    foreach($files as $key =>$file){
+                        $fileName = time(). $key.'.' .$file->extension();
+                        $file = $this->uploadImage($file, $fileName, 'diagnose_files',null);
                         $this->diagnoseImgModel::create([
                             'diagnose_id' => $diagnosis->id,
-                            'img'         => $fileName
+                            'img'         =>  $fileName,
                         ]);
-                    }
+                    
+                     }
                 }
             });
             Alert::success('success', 'Diagnosis Updated Successfully');
