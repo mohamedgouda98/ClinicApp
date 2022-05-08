@@ -70,7 +70,7 @@ class PatientRepository implements PatientInterface
 
     {
          $id=$patient->id;
-         $diagnosis= $this->diagnosisModel::where('patient_id',$id)->with('diagnosisImg')->get();
+         $diagnosis= $this->diagnosisModel::where('patient_id',$id)->with('diagnosisImg')->orderBy('id', 'desc')->paginate(10);;
         return view('admin.patient.show', compact('patient','diagnosis'));
     }
 
@@ -115,5 +115,15 @@ class PatientRepository implements PatientInterface
     public function createDiagnose($patient)
     {
         return view('admin.diagnoses.create', compact('patient'));
+    }
+
+    public function reOrder($patient){
+
+        $book = $this->bookingModel::create([
+            'patient_id' => $patient->id
+        ]);
+          Alert::success('success', 'New Booking Created Successfully, Book Id Number ' . $book->id);
+          return redirect(route('admin.patient.index'));
+
     }
 }

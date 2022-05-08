@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DiagnosisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiagnosisController;
+use App\Http\Controllers\DiganoseImgController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 //login
 Route::get('/login',[AuthController::class,'loginpage'])->name('loginpage');
-Route::post('/login',[AuthController::class,'login'])->name('login');
+ Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], function (){
 
     //Dashboard Route
@@ -36,6 +37,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], fu
        Route::get('/show/{patient}', [PatientController::class, 'show'])->name('show');
        Route::get('/edit/{patient}', [PatientController::class, 'edit'])->name('edit');
        Route::put('/update/{patient}', [PatientController::class, 'update'])->name('update');
+       Route::post('/re-order/{patient}',[PatientController::class,'reOrder'])->name('reorder');
        Route::get('/create-diagnose/{patient}', [PatientController::class, 'createDiagnose'])->name('create-diagnose');
        Route::delete('/delete', [PatientController::class, 'destroy'])->name('destroy');
     });
@@ -46,6 +48,14 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.','middleware' => 'auth'], fu
         Route::get('/edit/{diagnosis}', [DiagnosisController::class, 'edit'])->name('edit');
         Route::put('/update/{diagnosis}', [DiagnosisController::class, 'update'])->name('update');
         Route::delete('/delete', [DiagnosisController::class, 'destroy'])->name('destroy');
+    });
+    //DiagnosisImg Route
+    Route::group(['prefix' => 'diagnoseisimg', 'as' => 'diagnoseimg.'], function (){
+        Route::get('/index', [DiganoseImgController::class, 'index'])->name('index');
+        Route::post('/store', [DiganoseImgController::class, 'store'])->name('store');
+        Route::get('/edit/{diagnosisimg}', [DiganoseImgController::class, 'edit'])->name('edit');
+        Route::put('/update/{diagnosisimg}', [DiganoseImgController::class, 'update'])->name('update');
+        Route::delete('/delete', [DiganoseImgController::class, 'destroy'])->name('destroy');
     });
 });
 

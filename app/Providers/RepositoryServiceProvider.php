@@ -29,6 +29,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Interfaces\DiagnosisInterface',
             'App\Http\Repositories\DiagnosisRepository'
         );
+        $this->app->bind(
+            'App\Http\Interfaces\DiagnoseImgInterface',
+            'App\Http\Repositories\DiagnoseImgRepository'
+        );
     }
 
     /**

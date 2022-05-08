@@ -58,4 +58,7 @@ class PatientController extends Controller
     {
         return $this->patientInterface->createDiagnose($patient);
     }
+    public function reOrder( Patient $patient){
+        return $this->patientInterface->reOrder($patient);
+    }
 }
