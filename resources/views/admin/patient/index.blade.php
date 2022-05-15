@@ -24,24 +24,21 @@ Patient
     <!-- Content wrapper start -->
     <div class="content-wrapper">
         <div class="row">
-            <div class="col-sm-12 col-md-12">
-                <div id="basicExample_filter" class="dataTables_filter">
-                    <label>
-                        <form method="get" action="{{route('admin.patient.search')}}">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <form method="get" action="{{route('admin.patient.index')}}">
                             @csrf
-                            <div class="input-group">
-                                <div class="form-outline">
-                                    <input id="search-input" type="search"  class="form-control" placeholder="Search" />
-                                </div>
-                                <button  type="submit" class="btn btn-sm btn-primary">
-                                    <span class="icon-magnifying-glass "></span>
-                                </button>
-                            </div>
-                        </form>
-                </div>
-                </label>
-            </div>
-        </div>
+                    <div class="row">
+                    
+                        <div class="col-6 mb-4">
+                            <input class="form-control" type="search" name="search" placeholder="search by name...." value="{{ request('search') ?? ' '}}">
+                        </div>
+                        <div class="col-4 mb-4">
+                            <button class="btn btn-primary">Search</button>
+                        </div>
+                        
+                    </div>
+                </form>
+   
 
         <!-- Row start -->
         <div class="row gutters">

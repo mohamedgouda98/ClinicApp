@@ -2,12 +2,15 @@
 
 namespace App\Http\Repositories;
 
-use App\Http\Interfaces\PatientInterface;
 use App\Models\Booking;
-use App\Models\Diagnosis;
 use App\Models\Patient;
+use App\Models\Diagnosis;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Interfaces\PatientInterface;
+use Symfony\Component\Console\Input\Input;
+use Illuminate\Http\Request;
+
 
 class PatientRepository implements PatientInterface
 {
@@ -24,11 +27,19 @@ class PatientRepository implements PatientInterface
 
     public function index()
     {
-        $patients = $this->patientModel::with('book')->orderBy('id', 'desc')->paginate(10);
+        $search= request('search');
+        $query= $this->patientModel::with('book')
+        ->when(request('search'),function($q)use($search)
+        {
+           return $q->where('name','like','%'.$search.'%');
+        });
+        
+       $patients= $query->orderBy('id', 'desc')->paginate(10);
         return view('admin.patient.index', compact('patients'));
     }
     public function search(){
-
+       
+      
     }
 
     public function create()

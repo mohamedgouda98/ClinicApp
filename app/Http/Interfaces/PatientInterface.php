@@ -6,8 +6,6 @@ interface PatientInterface
 {
     public function index();
 
-    public function search();
-
     public function create();
 
     public function store($request);

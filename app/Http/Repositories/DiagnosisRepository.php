@@ -26,8 +26,19 @@ class DiagnosisRepository implements  DiagnosisInterface
 
     public function index()
     {
-        $diagnoses = $this->diagnosisModel::with('patients')->orderBy('id', 'desc')->paginate(10);
+        $search= request('search');
+        $query=  $this->diagnosisModel::with('patients')
+        ->when(request('search'),function($q)use($search)
+        {
+        $q->whereHas('patients',function($q) use($search)
+        {
+          return  $q->where('name','like','%'.$search.'%');
+              });
+
+        });
+        $diagnoses= $query->orderBy('id', 'desc')->paginate(10);
         return view('admin.diagnoses.index', compact('diagnoses'));
+       
     }
 
     public function store($request)

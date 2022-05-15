@@ -12,7 +12,7 @@
         <div class="page-header">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item active">Patients</li>
+                <li class="breadcrumb-item active">Diagnosis</li>
             </ol>
             <div class="site-award">
                 <img src="{{ asset('assetsAdmin/img/award.svg') }}" alt="Award"> Best Hospital
@@ -27,14 +27,19 @@
             <!-- Row start -->
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <form method="get" action="{{route('admin.diagnose.index')}}">
+                            @csrf
                     <div class="row">
+                    
                         <div class="col-6 mb-4">
-                            <input class="form-control" type="search" name="search" placeholder="search ....">
+                            <input class="form-control" type="search" name="search" placeholder="search by name...." value="{{ request('search') ?? ' '}}">
                         </div>
                         <div class="col-4 mb-4">
                             <button class="btn btn-primary">Search</button>
                         </div>
+                        
                     </div>
+                </form>
                     <div class="table-container">
 
                         <!--*************************
